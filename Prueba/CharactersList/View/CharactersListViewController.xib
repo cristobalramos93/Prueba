@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersListViewController" customModule="Prueba" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="FHy-bz-Gw6" id="x12-eo-Fw0"/>
                 <outlet property="tableView" destination="pLx-gu-WV1" id="Dup-kz-Zz4"/>
                 <outlet property="view" destination="iN0-l3-epB" id="G3O-he-w1E"/>
             </connections>
@@ -20,17 +21,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pLx-gu-WV1">
-                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <rect key="frame" x="0.0" y="115" width="393" height="737"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FHy-bz-Gw6">
+                    <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="dco-0b-pPA"/>
+                    </connections>
+                </searchBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="pLx-gu-WV1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6G9-Vn-7di"/>
                 <constraint firstItem="pLx-gu-WV1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="8dl-Zh-P9z"/>
+                <constraint firstItem="FHy-bz-Gw6" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="FMv-lP-jdU"/>
                 <constraint firstAttribute="bottom" secondItem="pLx-gu-WV1" secondAttribute="bottom" id="JIi-mS-BaB"/>
-                <constraint firstItem="pLx-gu-WV1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Ryy-Ab-VzF"/>
+                <constraint firstItem="FHy-bz-Gw6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="K2k-RK-lLE"/>
+                <constraint firstItem="FHy-bz-Gw6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Vfz-RR-y6a"/>
+                <constraint firstItem="pLx-gu-WV1" firstAttribute="top" secondItem="FHy-bz-Gw6" secondAttribute="bottom" id="lOO-EE-DYZ"/>
             </constraints>
             <point key="canvasLocation" x="55.725190839694655" y="-11.267605633802818"/>
         </view>

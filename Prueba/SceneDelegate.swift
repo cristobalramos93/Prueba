@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         let nav = UINavigationController()
         let viewController = CharactersListViewController()
-        viewController.presenter = CharactersListViewModel(api: ApiRequest())
+        viewController.viewModel = CharactersListViewModel(api: ApiRequest())
         nav.viewControllers = [viewController]
         window?.rootViewController = nav
         window?.makeKeyAndVisible()

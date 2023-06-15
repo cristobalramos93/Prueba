@@ -1,5 +1,5 @@
 //
-//  CharacterListResponse.swift
+//  CharactersDataList.swift
 //  Prueba
 //
 //  Created by Cristobal Ramos on 12/6/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterListResponse {
+struct CharactersDataList {
     let characterList: [CharacterData]
     let pages: Int
 }

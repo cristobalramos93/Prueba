@@ -1,35 +1,31 @@
 //
-//  CharacterListRequest.swift
-//  Prueba
+//  ApiMock.swift
+//  PruebaTests
 //
-//  Created by Cristobal Ramos on 12/6/23.
+//  Created by Cristobal Ramos on 13/6/23.
 //
 
 import Foundation
 import Combine
 
-enum ApiError: Error {
-    case error
-}
+@testable import Prueba
 
-class ApiRequest {
-    var api: API?
-    var urlComponents = URLComponents()
+class ApiMock: ApiRequest {
     
-    func fetchCharacterList(_ page: Int) -> Future<CharactersDataList, Error> {
+    private var json: String
+    
+    init(json: String) {
+        self.json = json
+    }
+    override func fetchCharacterList(_ page: Int) -> Future<CharactersDataList, Error> {
         Future<CharactersDataList, Error> { promise in
-            let offsetQuery = URLQueryItem(name: "page", value: String(page))
-            self.urlComponents.scheme = "https"
-            self.urlComponents.host = "rickandmortyapi.com"
-            self.urlComponents.path = "/api/character/"
-            self.urlComponents.queryItems = [offsetQuery]
-            self.api = API(url: self.urlComponents.url ?? URL(fileURLWithPath: ""))
-            guard let api = self.api else { return promise(.failure(ApiError.error))}
-            var charactersList: [CharacterData] = []
             var pages = 0
-            api.performRequest { data, response, error in
-                guard let data = data else { return promise(.failure(ApiError.error))}
+            var charactersList: [CharacterData] = []
+            let decoder = JSONDecoder()
+            let testBundle = Bundle(for: type(of: self))
+            if let fileURL = testBundle.url(forResource: self.json, withExtension: "json") {
                 do {
+                    let data = try Data(contentsOf: fileURL)
                     let decoder = JSONDecoder()
                     let response = try decoder.decode(CharacterListDTO.self, from: data)
                     charactersList = response.results.map {

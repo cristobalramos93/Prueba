@@ -15,6 +15,6 @@ class API {
     }
     
     func performRequest(_ completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        URLSession.shared.dataTask(with: self.url, completionHandler: completion).resume()
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
 }

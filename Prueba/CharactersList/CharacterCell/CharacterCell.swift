@@ -1,8 +1,8 @@
 //
 //  CharacterCell.swift
-//  openBank
+//  Prueba
 //
-//  Created by Cristobal Ramos on 3/3/22.
+//  Created by Cristobal Ramos on 12/6/23.
 //
 
 import Foundation
@@ -16,12 +16,12 @@ class CharacterCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.characterImageView.image = nil
+        characterImageView.image = nil
     }
     
     func setup(imageUrl: String, name: String) {
         nameLabel.text = name
-        characterImageView.layer.cornerRadius = self.characterImageView.frame.height / 2
+        characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
         characterImageView.clipsToBounds = true
         characterImageView.contentMode = .scaleAspectFill
         let url = URL(string: imageUrl)
