@@ -24,9 +24,10 @@ class CharactersListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundView()
+        showLottieView("load")
         bind()
         setTableView()
-        setBackgroundView()
         viewModel?.loadCharacterList(page: myPage, characterList: charactersList)
     }
 }
@@ -82,7 +83,7 @@ private extension CharactersListViewController {
         backgroundView = UIView(frame: CGRect.zero)
         backgroundView?.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(backgroundView ?? UIView())
-        backgroundView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        backgroundView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         backgroundView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         backgroundView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         backgroundView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
